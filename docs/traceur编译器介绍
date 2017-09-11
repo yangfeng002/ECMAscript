@@ -1,0 +1,77 @@
+Traceur转码器
+Google公司的Traceur转码器，也可以将ES6代码转为ES5代码。
+使用方法：
+1、直接插入网页
+Traceur允许将ES6代码直接插入网页。首先，必须在网页头部加载Traceur库文件。
+<script src="https://google.github.io/traceur-compiler/bin/traceur.js"></script>
+<script src="https://google.github.io/traceur-compiler/bin/BrowserSystem.js"></script>
+<script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>
+<script type="module">
+import './Greeter.js';
+</script>
+上面代码中，一共有4个script标签。第一个是加载Traceur的库文件，
+第二个和第三个是将这个库文件用于浏览器环境，
+第四个则是加载用户脚本，这个脚本里面可以使用ES6代码，开发人员编写的ES6代码最后都写在这里
+
+注意，第四个script标签的type属性的值是module，而不是text/javascript。
+这是Traceur编译器识别ES6代码的标志，编译器会自动将所有type=module的代码编译为ES5，然后再交给浏览器执行。
+
+2、直接在线编译————主要用于测试
+http://babeljs.io/repl/
+http://google.github.io/traceur-compiler/demo/repl.html
+
+3、ES6直接在node 里面使用
+  Node.js是JavaScript语言的服务器运行环境，对ES6的支持度比浏览器更高。
+  通过Node，可以体验更多ES6的特性。
+  使用方法：1）直接使用，需要添加'use script' ————node xxx.js
+  2)使用node--harmony_desctructuring xxx.js
+  ---------------------------------------------------------------------------------
+  我们在下面的文章中具体讲解ES6时，使用Traceur转码器的直接插入网页的方法来转码ES6
+  traceur：是由Google出的编译器，可以将ES5编译成ES6
+  bootstrap：是一个引导程序(与响应式的bootstrap不同)
+  需要将traceur.js和bootstrap.js下载下来，引入到当前文件中即可
+  ---------------------------------------------------------------------
+  注意：在使用ES6时，先不用引入任何东西，去测试，
+  当不支持ES6时，再去引入traceur.js和bootstrap.js对RS6进行转码。
+  以为现在浏览器已经支持部分ES6功能，有的不需要转码，转码反而错误
+
+4、Traceur的命令行转换方法：
+  作为命令行工具使用时，Traceur是一个Node的模块，首先需要用Npm安装。
+
+  $ npm install -g traceur
+  安装成功后，就可以在命令行下使用Traceur了。
+
+  Traceur直接运行es6脚本文件，会在标准输出显示运行结果，以脚本calc.js为例。
+  $ traceur calc.js
+  Calc constructor
+  9
+
+  如果要将ES6脚本转为ES5保存，要采用下面的写法。
+  $ traceur --script calc.es6.js --out calc.es5.js
+  上面代码的--script选项表示指定输入文件，--out选项表示指定输出文件。
+
+  为了防止有些特性编译不成功，最好加上--experimental选项。
+  $ traceur --script calc.es6.js --out calc.es5.js --experimental
+  命令行下转换生成的文件，就可以直接放到浏览器中运行。
+
+  3）Traceur的Node.js环境的用法
+  Traceur的Node.js用法如下（假定已安装traceur模块）。
+  var traceur = require('traceur');
+  var fs = require('fs');
+  // 将ES6脚本转为字符串
+  var contents = fs.readFileSync('es6-file.js').toString();
+
+  var result = traceur.compile(contents, {
+  filename: 'es6-file.js',
+  sourceMap: true,
+  // 其他设置
+  modules: 'commonjs'
+  });
+
+  if (result.error)
+  throw result.error;
+
+  // result对象的js属性就是转换后的ES5代码
+  fs.writeFileSync('out.js', result.js);
+  // sourceMap属性对应map文件
+  fs.writeFileSync('out.js.map', result.sourceMap);
