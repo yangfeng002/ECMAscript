@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6中字符串连接</title>
+    <script type="text/javascript">
+         var a = '北京时间^_^';
+         var b ='iOS 8 beta 4^_^';
+         var str = `${a}凌晨消息，苹果已推送了 iOS 8 的第四个测试版此次苹果带来许多受欢迎的改变，在这里我们跟大家一起来盘点  ${b}的更新内容。`;
+         document.write(str);
+
+        //解构赋值
+       // var [a,b,c] = [12,5,101];
+        //alert(a)a
+        // var {a,b,c} = {a:12,b:5,c:101}
+        // console.log(a)
+         var [{a,e},b,c,d] = [{e:'eee',a:'aaa'},5,2,101]
+         console.log(a,b,c,d,e);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
