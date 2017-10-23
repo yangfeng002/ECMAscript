@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单体模式简单化</title>
+    <script type="text/javascript" charset="UTF-8">
+        //ES5
+       /* var name = "aa";
+        var age = 20;
+        var Person = {
+            name:name,
+            age:age,
+            showName:function(){
+                return this.name;
+            },
+            showAge:function(){
+                return this.age;
+            }
+        }*/
+
+
+        //ES6单体
+        var name = "aa";
+        var age = 20;
+        var Person = {
+            name,
+            age,
+            showName(){
+                return this.name;
+            },
+            showAge(){
+                return this.age;
+            }
+        }
+        alert(Person.showName())
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

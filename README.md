@@ -21,7 +21,7 @@ html5也是一个标准，被各大浏览器实现
 
     })()
 
-    ES6里面（解决i的问题，例如问题.html）
+    ES6里面（解决i的问题，例如  问题.html）
     {
 
     }
@@ -41,6 +41,98 @@ html5也是一个标准，被各大浏览器实现
       var [{a,e},b,c,d] = [{e:'eee',a:'aaa'},5,2,101]
    对象
    var {a,b,c} = {a:12,b:5,c:101} //与顺序无关
+
+   交互---数据解析
+    [{title:'',href:'',img:''}]
+  解构赋值可以给默认值
+  var json = {}
+  var a = json.a || 12
+
+  语法：var {time=12,id=0} = {};
+
+-----------------------------------------------------------------
+  复制数组------spread map for-of循环
+        1.通过for循环
+        2.Array.from方法
+        3. ...数组名
+
+ ---------------------------------------------------------------
+ 循环
+     普通的for循环
+     for in ----for(var i in array){} 可以遍历json对象，也可以遍历数组
+     for of  ---只能遍历数组，不能遍历json,主要用来遍历Map的
+     Map对象和json相似，主要是为了for of循环配合而生
+     var map = new Map();
+     设置 map.set(key,value);  获取  map.get(key); 删除 map.delete(name)
+
+函数
+   ES5:
+    function show(){
+
+    }
+    show();调用
+
+    ES6 箭头函数  ()=>{}
+       1.this指向有问题，指向的是window
+       2.arguments不能使用
+
+对象语法简介化
+
+  //单体模式
+  json
+   var name = "aa";
+          var age = 20;
+          var Person = {
+              name,
+              age,
+              showName(){
+                  return this.name;
+              },
+              showAge(){
+                  return this.age;
+              }
+          }
+          alert(Person.showName())
+
+   //面向对象
+    clsss      constructor
+
+      //ES6
+          class Person {
+              constructor(name='default',age=0){
+                  //添加默认值
+                 this.name = name;
+                 this.age = age;
+              }
+              showName(){
+                  //对象的方法
+                  return this.name;
+              }
+              showAge(){
+                  //对象的方法
+                  return this.age;
+              }
+          }
+          var p1 = new Person();
+          var p2 = new Person('aaa',30);
+          //alert(p2.name);
+            //alert(p2.showName())
+            //alert(p2.showAge())
+            //alert(p1.showName ==p2.showName);
+            console.log(p1.constructor ==Person);
+           console.log(p1.name);
+
+
+      继承
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复制数组</title>
+    <script type="text/javascript" charset="UTF-8">
+        //方法一 循环
+        var arr1 = [1,2,3];
+        var arr2 = [];
+        for(var i=0;i<arr1.length;i++){
+            arr2.push(arr1[i]);
+        }
+        arr2.pop();
+        //console.log(arr1,arr2);
+
+        //方法二  Array.from();
+        var arr3 = Array.from(arr1);
+        //console.log(arr3);
+
+        //方法三  [...arr]超级引用 可以用来传递参数
+        var arr4 = [...arr1];
+        //console.log(arr4);
+        function show(...args){
+             args.push(4);
+            console.log(args);
+        }
+        show(1,2.3);
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

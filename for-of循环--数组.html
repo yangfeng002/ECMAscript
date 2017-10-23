@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for of循环---数组</title>
+    <script type="text/javascript" charset="UTF-8">
+        var arr = ['三国演义','红楼梦','西游记','水浒传'];
+
+        //利用解构赋值
+        for(var [key,value] of arr.entries()){
+            console.log(key,value);//遍历的既有名称，又有值
+        }
+        //只循环key
+        for(var key of arr.keys()){
+            console.log(key);//遍历的既有名称，又有值
+        }
+        //只循环value
+        for(var value of arr){
+            console.log(value);//遍历的既有名称，又有值
+        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

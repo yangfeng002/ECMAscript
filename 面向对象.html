@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象</title>
+    <script type="text/javascript" charset="UTF-8">
+       /* //原始做法 ES5
+         function Person(name,age) {
+             this.name = name;
+             this.age = age;
+         }
+         Person.prototype.showName = function () {
+              return this.name;
+         };
+         Person.prototype.showAge = function () {
+             return this.age;
+         };
+
+         var p1 = new Person("abc",20);
+         alert(p1.showName())*/
+
+       //ES6
+      class Person {
+          constructor(name='default',age=0){
+              //添加默认值
+             this.name = name;
+             this.age = age;
+          }
+          showName(){
+              //对象的方法
+              return this.name;
+          }
+          showAge(){
+              //对象的方法
+              return this.age;
+          }
+      }
+      var p1 = new Person();
+      var p2 = new Person('aaa',30);
+      //alert(p2.name);
+        //alert(p2.showName())
+        //alert(p2.showAge())
+        //alert(p1.showName ==p2.showName);
+        console.log(p1.constructor ==Person);
+       console.log(p1.name);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
