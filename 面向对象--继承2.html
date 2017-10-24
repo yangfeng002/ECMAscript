@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象--继承</title>
+    <script type="text/javascript" charset="UTF-8">
+        class Person {
+            constructor(name='default',age=0){
+                //添加默认值
+                this.name = name;
+                this.age = age;
+            }
+            showName(){
+                //对象的方法
+                return this.name;
+            }
+            showAge(){
+                //对象的方法
+                return this.age;
+            }
+        }
+        //继承
+        class Worker extends Person{
+            constructor(name,age,job='java'){
+                super(name,age);//表示不覆盖父类的属性
+                this.job = job;
+            }
+            //单独的方法
+            showJob(){
+                return this.job;
+            }
+        }
+
+        var w1 = new Worker("ww",56);
+        //alert(w1.showJob())
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

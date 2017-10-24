@@ -99,6 +99,7 @@ html5也是一个标准，被各大浏览器实现
 
       //ES6
           class Person {
+             //构造函数
               constructor(name='default',age=0){
                   //添加默认值
                  this.name = name;
@@ -113,18 +114,31 @@ html5也是一个标准，被各大浏览器实现
                   return this.age;
               }
           }
-          var p1 = new Person();
-          var p2 = new Person('aaa',30);
-          //alert(p2.name);
-            //alert(p2.showName())
-            //alert(p2.showAge())
-            //alert(p1.showName ==p2.showName);
+            var p1 = new Person();
+            var p2 = new Person('aaa',30);
+            //console.log(p2.name);
+            //console.log(p2.showName())
+            //console.log(p2.showAge())
+            //console.log(p1.showName ==p2.showName);
             console.log(p1.constructor ==Person);
-           console.log(p1.name);
+            console.log(p1.name);
 
 
       继承
-
+         ES5  子类的prototype = 父类 （使用apply/call等方法实现）
+         ES6
+  //继承  extends关键字
+        class Worker extends Person{
+            constructor(name,age,job='java'){
+                super(name,age);//表示不覆盖父类的属性
+                this.job = job;
+            }
+            //单独的方法
+            showJob(){
+                return this.job;
+            }
+        }
+   例子：队列类
 
 
 
