@@ -64,7 +64,7 @@ html5也是一个标准，被各大浏览器实现
      Map对象和json相似，主要是为了for of循环配合而生
      var map = new Map();
      设置 map.set(key,value);  获取  map.get(key); 删除 map.delete(name)
-
+----------------------------------------------------------------------
 函数
    ES5:
     function show(){
@@ -75,7 +75,7 @@ html5也是一个标准，被各大浏览器实现
     ES6 箭头函数  ()=>{}
        1.this指向有问题，指向的是window
        2.arguments不能使用
-
+----------------------------------------------------------------
 对象语法简介化
 
   //单体模式
@@ -124,10 +124,10 @@ html5也是一个标准，被各大浏览器实现
             console.log(p1.name);
 
 
-      继承
+      继承----------
          ES5  子类的prototype = 父类 （使用apply/call等方法实现）
          ES6
-  //继承  extends关键字
+      //继承  extends关键字
         class Worker extends Person{
             constructor(name,age,job='java'){
                 super(name,age);//表示不覆盖父类的属性
@@ -138,7 +138,20 @@ html5也是一个标准，被各大浏览器实现
                 return this.job;
             }
         }
-   例子：队列类
+       例子：队列类  bind（看腾讯课堂）
+
+     模块化------- 此时必须引用traceur.js(编译工具)和bootstrap.js,script的type类型为module
+       ES5  seajs  requireJs
+
+       ES6  自带模块化
+         如何定义（导出）模块
+         const a = 12;//定义一个常量，要赋值，一旦定义无法修改
+         export default a;
+
+         如何引用模块
+          import ModA from 'js/a.js';
+           console.log(ModA);
+
 
 
 

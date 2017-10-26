@@ -9,9 +9,20 @@
             constructor(content=[]){
                this._queue = [...content];
             }
+             shift(){
+              const value = this._queue[0];
+              this._queue.shift();
+              return value;
+            }
+            push(){
+                this._queue.push(5);
+                return this._queue;
+            }
          }
 
          var q = new Queue([1,2,3,4]);
+         q.shift();
+         q.push();
          console.log(q._queue);
     </script>
 </head>
