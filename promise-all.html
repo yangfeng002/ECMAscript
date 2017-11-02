@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>promise-all方法</title>
+    <script type="text/javascript" charset="UTF-8">
+       //all方法里面是多个promose对象的数组
+        var p1 = Promise.resolve(3);
+        var p2 = Promise.reject(5);
+        Promise.all([false,p1,p2]).then(function (value) {
+           //成功的消息(当所有的promise实例成功才会走成功的方法)
+            console.log('成功了'+value);
+        },function (value) {
+            //错误消息（如果有一个错误，那么就会走错误的方法）
+            console.log('错误'+value);
+        })
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

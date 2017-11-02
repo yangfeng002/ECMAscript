@@ -140,7 +140,9 @@ html5也是一个标准，被各大浏览器实现
         }
        例子：队列类  bind（看腾讯课堂）
 
-     模块化------- 此时必须引用traceur.js(编译工具)和bootstrap.js,script的type类型为module
+----------------------------------------------------------------------------------------------------
+
+   模块化------- 此时必须引用traceur.js(编译工具)和bootstrap.js,script的type类型为module
        ES5  seajs  requireJs
 
        ES6  自带模块化
@@ -152,10 +154,27 @@ html5也是一个标准，被各大浏览器实现
           import ModA from 'js/a.js';
            console.log(ModA);
 
+----------------------------------------------------------
+ Promise  --承诺
+   其实就是对象，用来传递异步操作的数据
 
+   pendging （等待，处理中）---> Resolve(完成 fullFilled)
+                            --->Rejected(拒绝、失败)
+             var p1 = new Promise(function(resolve,reject){
+                  if(异步处理成功){
+                     resolve(成功原因)
+                  }else{
+                     reject(失败原因)
+                  }
 
-
-
+             })
+             p1.then(resolve(成功),reject(失败))  可以链式调用，then方法必须传递一个参数
+             ---------------
+             catch(function(e){}) 方法用来捕获错误
+             ---------------
+             all() 全部 用于将多个Promise对象组合，包装成一个全新的Promise实例
+             --------------
+             race()返回的也是promise对象,最先执行的promise结果，哪个最快用哪个
 
 
 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise用来异步处理数据</title>
+    <script type="text/javascript" charset="UTF-8">
+       /* var p1 = new Promise(function (resolve,reject) {
+            //resolve(1);
+            reject(2);
+        });
+        p1.then(function (value) {
+            alert("成功了"+value);
+        },function (value) {
+            alert("失败了"+value);
+        })*/
+
+       var p1 = new Promise(function (resolve,reject) {
+           resolve(1);
+       });
+       p1.then(function (value) {
+           //成功的函数
+           console.log(value);
+           return value+1;
+       },function (value) {
+           //失败
+           console.log(value);
+       }).then(function (value) {  //链式调用
+           console.log(value);
+       })
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
